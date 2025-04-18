@@ -1,3 +1,4 @@
-# sem2-Devops
 
-## Olá, este é um repositório *exclusivo para testes*.
+## Olá, este é um repositório *exclusivo para testes*. 🦖
+
+### Semana 6 - discord integration 
