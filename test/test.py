@@ -1,6 +1,5 @@
 from src.main import *
 from unittest.mock import patch
-
 import pytest
 
 @pytest.mark.asyncio
@@ -40,3 +39,33 @@ async def test_delete_estudante_negativo():
 async def test_delete_estudante_positivo():
     result = await delete_estudante(10)
     assert result
+
+# Testes adicionados posteriormente by Alessandra
+@pytest.mark.asyncio
+async def test_activate_estudante():
+    result = await activate_estudante(True)
+    assert result
+
+@pytest.mark.asyncio
+async def test_deactivate_estudante():
+    result = await deactivate_estudante(True)
+    assert result
+
+@pytest.mark.asyncio
+async def test_getByName_estudante():
+    nome_test = "João"
+    result = await getByName_estudante(nome_test)
+    assert nome_test == result
+
+@pytest.mark.asyncio
+async def test_getAll():
+    result = await getAll()
+    assert isinstance(result, list)
+    assert {"name": "Maria", "curso": "Análise e Desenvolvimento de Sistemas", "ativo": True} in result
+
+@pytest.mark.asyncio
+async def test_getCursos():
+    result = await getCursos()
+    assert isinstance(result, dict)
+    assert "cursos" in result
+    assert "Sistemas de Informação" in result["cursos"]
