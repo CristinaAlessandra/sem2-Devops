@@ -3,7 +3,6 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 
 app = FastAPI()
-
 class Estudante(BaseModel):
     name: str
     curso: str
@@ -29,6 +28,7 @@ async def update_estudante(id_estudante: int):
 async def delete_estudante(id_estudante: int):
     return id_estudante > 0
 
+# Métodos adicionados posteriormente by Alessandra
 @app.patch("/estudantes/activate/{id_estudante}")
 async def activate_estudante(id_estudante: int):
     return {"id": id_estudante, "ativo": True}
@@ -52,5 +52,10 @@ async def getAll():
 
 @app.get("/cursos")
 async def getCursos():
-    cursos = ["Sistemas de Informação", "Engenharia de Software", "Gestão de Tecnologia da Informação", "Análise e Desenvolvimento de Sistemas"]
+    cursos = [
+        "Sistemas de Informação",
+        "Engenharia de Software",
+        "Gestão de Tecnologia da Informação",
+        "Análise e Desenvolvimento de Sistemas"
+    ]
     return {"cursos": cursos}
